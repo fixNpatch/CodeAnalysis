@@ -7,7 +7,7 @@ public class Configurator {
     private String pathToProps;
 
     Configurator(){
-        props = null;
+        props = new Properties();
         pathToProps = "tmp/config.properties";
     }
 

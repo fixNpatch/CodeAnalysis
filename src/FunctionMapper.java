@@ -1,6 +1,45 @@
+import strategies.GoParser;
+import strategies.IParser;
+import strategies.JavaParser;
+import strategies.PhpParser;
+
+import java.util.Properties;
+
 class FunctionMapper {
 
+    private IParser IParser;
+    private Configurator configurator;
+    private Properties properties;
+
+    FunctionMapper(){
+        configurator = new Configurator();
+
+        configurator.loadProps();
+        properties = configurator.getProps();
+
+        String s = properties.get("mrl").toString();
+
+
+        // определение стратегии
+
+        if ("java".equals(s)) {
+            IParser = new JavaParser();
+        } else if ("php".equals(s)) {
+            IParser = new PhpParser();
+        } else if ("go".equals(s)) {
+            IParser = new GoParser();
+        } else {
+            System.out.println("error with strategy choice");
+            return;
+        }
+
+    }
+
+
     void CreateFunctionMap(){
+
+        IParser.parse();
+
         // Возможны два подхода
         // 1.
         //    а) пробегаемся по "важным" файлам.
@@ -18,6 +57,10 @@ class FunctionMapper {
         //    г) во время обхода пытаемся найти SQL выражения.
         //    д) при успешном нахождении, вызываем StackTraceMessage(даже если есть решения, пишем вручную логгирование)
         //    е) анализируем выражения.
+
+
+        // реализуем первый вариант.
+
     }
 
 }
