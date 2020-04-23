@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Properties;
 
-public class Configurator {
+class Configurator {
 
     private Properties props;
     private String pathToProps;

@@ -10,13 +10,16 @@ public class Main {
         System.out.println("Enter project path");
         String ProjectPath = sc.nextLine();
 
-        // Mappers init
-        FileMapper fileMapper = new FileMapper();
-        FunctionMapper functionMapper = new FunctionMapper();
 
         System.out.println(ProjectPath);
 
+
+        // Mappers init
+        FileMapper fileMapper = new FileMapper();
         fileMapper.CreateProjectMap(ProjectPath);
+
+
+        FunctionMapper functionMapper = new FunctionMapper(); // во время создания конструктора определяется стратегия
         functionMapper.CreateFunctionMap();
 
     }

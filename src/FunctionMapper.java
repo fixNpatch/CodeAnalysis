@@ -20,7 +20,9 @@ class FunctionMapper {
         String s = properties.get("mrl").toString();
 
 
-        // определение стратегии
+        /* ---------------------------------
+        ------- Определение стратегии ------
+        -----------------------------------*/
 
         if ("java".equals(s)) {
             IParser = new JavaParser();
@@ -30,7 +32,6 @@ class FunctionMapper {
             IParser = new GoParser();
         } else {
             System.out.println("error with strategy choice");
-            return;
         }
 
     }
@@ -38,7 +39,7 @@ class FunctionMapper {
 
     void CreateFunctionMap(){
 
-        IParser.parse();
+        IParser.ScanForSqlConnections();
 
         // Возможны два подхода
         // 1.

@@ -32,9 +32,6 @@ class FileMapper {
         configurator = new Configurator();
     }
 
-    private void saveProperties() {
-
-    }
 
     // распознавание расширения файла
     private String getExtension(File file) {
@@ -51,7 +48,6 @@ class FileMapper {
         if (files != null)
             for (File file : files) {
                 String extension = "";
-//                System.out.println(file.getName());
                 if (file.isDirectory() && !dict.contains(file.getName())) {
                     openDir(file.getAbsolutePath());
                 }

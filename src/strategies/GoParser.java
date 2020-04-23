@@ -7,7 +7,7 @@ public class GoParser implements IParser  {
     }
 
     @Override
-    public void parse() {
+    public void ScanForSqlConnections() {
 
     }
 }
